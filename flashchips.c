@@ -3447,7 +3447,7 @@ const struct flashchip flashchips[] = {
 		{
 			{
 				.eraseblocks = { {64 * 1024, 32} },
-				.block_erase = pi_block_erase_d8,
+				.block_erase = spi_block_erase_d8,
 			}, {
 				.eraseblocks = { {2048 * 1024, 1} },
 				.block_erase = spi_block_erase_c7,
@@ -3459,7 +3459,7 @@ const struct flashchip flashchips[] = {
 		.read		= spi_chip_read, /* Fast read (0x0B) supported */
 		.voltage	= {2700, 3600},
 	},
-	},
+	
 
 	{
 		.vendor		= "Catalyst",
@@ -6304,52 +6304,6 @@ const struct flashchip flashchips[] = {
 		.voltage	= {2700, 3600},
 	},
 
-	{
-		.vendor		= "GigaDevice",
-		.name		= "GD25Q256D",
-		.bustype	= BUS_SPI,
-		.manufacture_id	= GIGADEVICE_ID,
-		.model_id	= GIGADEVICE_GD25Q256D,
-		.total_size	= 32768,
-		.page_size	= 256,
-		.feature_bits	= FEATURE_WRSR_WREN | FEATURE_OTP | FEATURE_4BA_WREN,
-		.tested		= TEST_UNTESTED,
-		.probe		= probe_spi_rdid,
-		.probe_timing	= TIMING_ZERO,
-		.block_erasers	=
-		{
-			{
-				.eraseblocks = { {4 * 1024, 8192} },
-				.block_erase = spi_block_erase_21,
-			}, {
-				.eraseblocks = { {4 * 1024, 8192} },
-				.block_erase = spi_block_erase_20,
-			}, {
-				.eraseblocks = { {32 * 1024, 1024} },
-				.block_erase = spi_block_erase_5c,
-			}, {
-				.eraseblocks = { {32 * 1024, 1024} },
-				.block_erase = spi_block_erase_52,
-			}, {
-				.eraseblocks = { {64 * 1024, 512} },
-				.block_erase = spi_block_erase_dc,
-			}, {
-				.eraseblocks = { {64 * 1024, 512} },
-				.block_erase = spi_block_erase_d8,
-			}, {
-				.eraseblocks = { {32 * 1024 * 1024, 1} },
-				.block_erase = spi_block_erase_60,
-			}, {
-				.eraseblocks = { {32 * 1024 * 1024, 1} },
-				.block_erase = spi_block_erase_c7,
-			}
-		},
-		.printlock	= spi_prettyprint_status_register_bp3_srwd,
-		.unlock		= spi_disable_blockprotect,
-		.write		= spi_chip_write_256,
-		.read		= spi_chip_read,
-		.voltage	= {2700, 3600},
-	},
 
 	{
 		.vendor		= "GigaDevice",
@@ -14278,32 +14232,7 @@ const struct flashchip flashchips[] = {
 		.voltage	= {3000, 3600}, /* Also has 12V fast program & erase */
 	},
 
-	{
-		.vendor		= "ST",
-		.name		= "M95M02",
-		.bustype	= BUS_SPI,
-		.manufacture_id	= ST_ID,
-		.model_id	= ST_M95M02,
-		.total_size	= 256,
-		.page_size	= 256,
-		.feature_bits	= FEATURE_WRSR_WREN | FEATURE_NO_ERASE | FEATURE_ERASED_ZERO,
-		.tested		= TEST_OK_PREW,
-		.probe		= probe_spi_st95,
-		.probe_timing	= TIMING_ZERO,
-		.block_erasers	=
-		{
-			{
-				.eraseblocks = { {256 * 1024, 1} },
-				.block_erase = spi_block_erase_emulation,
-			}
-		},
-
-		.printlock	= spi_prettyprint_status_register_bp1_srwd,
-		.unlock		= spi_disable_blockprotect_bp1_srwd,
-		.write		= spi_chip_write_256,
-		.read		= spi_chip_read,
-		.voltage	= {2500, 5500},
-	},
+	
 
 	{
 		.vendor		= "Sanyo",

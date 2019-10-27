@@ -212,6 +212,10 @@
 #define BRIGHT_BM29F400B	0xAB
 #define BRIGHT_BM29F400T	0xAD
 
+/* Boya Microelectronics Inc. */
+#define BOYA_ID			0x68
+#define BOYA_BY25D16		0x4015
+
 #define CATALYST_ID		0x31	/* Catalyst */
 #define CATALYST_CAT28F512	0xB8
 
@@ -372,7 +376,6 @@
 #define GIGADEVICE_GD25Q32	0x4016	/* Same as GD25Q32B */
 #define GIGADEVICE_GD25Q64	0x4017	/* Same as GD25Q64B */
 #define GIGADEVICE_GD25Q128	0x4018	/* GD25Q128B and GD25Q128C only, can be distinguished by SFDP */
-#define GIGADEVICE_GD25Q256D	0x4019
 #define GIGADEVICE_GD25VQ21B	0x4212
 #define GIGADEVICE_GD25VQ41B	0x4213  /* Same as GD25VQ40C, can be distinguished by SFDP */
 #define GIGADEVICE_GD25VQ80C	0x4214
@@ -852,9 +855,6 @@
 #define ST_M58WR032KT		0x8814
 #define ST_M58WR064KB		0x8811
 #define ST_M58WR064KT		0x8810
-
-#define ST_M95M02		0x0012	/* ST M95XXX 2Mbit (256KiB) */
-
 #define ST_MT28GU01G___1	0x88B0
 #define ST_MT28GU01G___2	0x88B1
 #define ST_MT28GU256___1	0x8901
