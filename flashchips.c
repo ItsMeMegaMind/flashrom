@@ -3431,6 +3431,36 @@ const struct flashchip flashchips[] = {
 		.voltage	= {4500, 5500},
 	},
 
+{
+		.vendor		= "Boya",
+		.name		= "BY25D16",
+		.bustype	= BUS_SPI,
+		.manufacture_id	= BOYA_ID,
+		.model_id	= BOYA_BY25D16,
+		.total_size	= 2048,
+		.page_size	= 256,
+		.feature_bits	= FEATURE_WRSR_WREN,
+		.tested		= TEST_OK_PR,
+		.probe		= probe_spi_rdid,
+		.probe_timing	= TIMING_ZERO,
+		.block_erasers	=
+		{
+			{
+				.eraseblocks = { {64 * 1024, 32} },
+				.block_erase = pi_block_erase_d8,
+			}, {
+				.eraseblocks = { {2048 * 1024, 1} },
+				.block_erase = spi_block_erase_c7,
+			},
+		},
+		.printlock	= spi_prettyprint_status_register_plain, 
+		.unlock		= spi_disable_blockprotect,
+		.write		= spi_chip_write_256,
+		.read		= spi_chip_read, /* Fast read (0x0B) supported */
+		.voltage	= {2700, 3600},
+	},
+	},
+
 	{
 		.vendor		= "Catalyst",
 		.name		= "CAT28F512",
